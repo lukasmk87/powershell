@@ -54,7 +54,7 @@ $osarch = (Get-WmiObject Win32_OperatingSystem -computername $pc).OSArchitecture
 				Invoke-command -computername $pc {Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | sort -Property DisplayName | select-object DisplayName,DisplayVersion | Export-Csv -Path c:\Windows\temp\$(get-content env:computername)_64bit.csv -NoTypeInformation} 
 				sleep -Seconds 1
 			 }
-                    Move-Item –Path \\$pc\c$\\Windows\temp\*.csv  -Destination \\bur-kg.org\dfs\Infrastruktur\inventar\ -Force
+                    Move-Item –Path \\$pc\c$\\Windows\temp\*.csv  -Destination \\domain.tld\dfs\Infrastruktur\inventar\ -Force
                     write_log "$pc wurde inventarisiert"
      }
     }
