@@ -49,7 +49,7 @@ switch($user.stufe){
 }
 
 #E-Mailversand
-Send-MailMessage -To $user.adremail2 -From "Stefanie Ahlbrink <stefanie.ahlbrink@bur-kg.de>" -Subject $betreff -Body $body -encoding ([System.Text.Encoding]::UTF8) -SmtpServer "smtp-relay.bur-kg.org" -Attachments $user.anhang
+Send-MailMessage -To $user.adremail2 -From "Dummy <du.ummy@domian.tld>" -Subject $betreff -Body $body -encoding ([System.Text.Encoding]::UTF8) -SmtpServer "smtp-relay.domain.tld" -Attachments $user.anhang
 write_log ('E-Mail für K:'+ $user.knr + ' wurde an: '  + $user.adremail + ' gesendet.')
 Move-Item -Path $user.anhang -Destination P:\Kontenklaerung\_sent\$(get-date -f yyMMdd)\
 }
