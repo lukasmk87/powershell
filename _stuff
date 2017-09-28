@@ -1,0 +1,1 @@
+Get-Content .\ADVEXPRT.CSV | Set-Content -Encoding UTF8 adv.csv
