@@ -1,1 +1,26 @@
 Get-Content .\ADVEXPRT.CSV | Set-Content -Encoding UTF8 adv.csv
+
+
+
+$advDir = "C:\adveo\"
+$adveotool = C:\adveo\ADVEO.EXE
+$srvDir = "\\bur-kg\dfs\erp\adveotool\"
+$DateNow = Get-Date -Format "dd-MM-yy_HHmm"
+$adveocsv = "C:\adveo\ADVEXPRT.CSV"
+
+
+$TestPath = Test-Path $srvDir\$(get-date -f ddMMyyyy)
+if($TestPath -eq $true){
+write-output "Ordner existiert."
+}else{
+New-Item $srvDir\$(get-date -f ddMMyyyy)\ -ItemType Directory
+}
+
+$cnt=1
+
+$TestPath = Test-Path $srvDir\$(get-date -f ddMMyyyy)\
+if($TestPath -eq $true){
+write-output "Ordner existiert."
+}else{
+New-Item $srvDir\$(get-date -f ddMMyyyy)\ -ItemType Directory
+}
